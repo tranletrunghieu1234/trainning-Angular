@@ -11,12 +11,24 @@
 				placeholder=""
 				formControlName="email"
 			>
-			<!-- <small 
-				id="emailHelpId"
+			<small 
+				*ngIf="checkoutGroup.get('email').touched && checkoutGroup.get('email').hasError('required')" 
 				class="form-text text-muted"
 			>
-			Help text
-			</small>   -->
+		    Please fill email fields
+			</small>  
+			<small 
+				*ngIf="checkoutGroup.get('email').touched && checkoutGroup.get('email').hasError('email')" 
+				class="form-text text-muted"
+			>
+			Email is invalid
+			</small>  
+			<small 
+				*ngIf="checkoutGroup.get('email').touched && checkoutGroup.get('email').hasError('minlength')" 
+				class="form-text text-muted"
+			>
+			Minimum > 5 character
+			</small>  
 		</div>
 		<div>
 			<label for="">Password</label>

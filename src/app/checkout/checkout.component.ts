@@ -9,17 +9,23 @@ export class CheckoutComponent implements OnInit {
   checkoutGroup:FormGroup
 
   constructor(private formBuilder:FormBuilder) {
-    this.checkoutGroup =formBuilder.group({  //=new FormGroup  building the form using formBuilder
-      email:new FormControl(),// in the formbuilder - we are creating a group of form element   
-      password:new FormControl(), //these should be exactly same as your form
-      terms:new FormControl(), // we can also have it dynamic - we will learn in next coming tutorials
+    // this.checkoutGroup =formBuilder.group({  //=new FormGroup  building the form using formBuilder
+    //   email:new FormControl(),// in the formbuilder - we are creating a group of form element   
+    //   password:new FormControl(), //these should be exactly same as your form
+    //   terms:new FormControl(), // we can also have it dynamic - we will learn in next coming tutorials
+    // })
+    ///validation
+    this.checkoutGroup =formBuilder.group({  
+      email:['',[Validators.minLength(5), Validators.required, Validators.email]], 
+      password:['',Validators.required],
+      terms:['',Validators.requiredTrue],
     })
    }
 
   ngOnInit(): void {
   }
   postData=()=>{
-    console.log("checkoutGroup",this.checkoutGroup.value);
+    console.log("checkoutGroup",this.checkoutGroup);
     console.log("checkoutGroupemail",this.checkoutGroup.value.email);
 
   }

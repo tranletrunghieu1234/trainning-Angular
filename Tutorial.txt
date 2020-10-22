@@ -407,7 +407,50 @@ Tutorial #42:  Template Driven Forms
         + ngForm và ngModel 
         	<form #signInForm="ngForm" (ngSubmit)="loginUsers(signInForm);">
         + ngModel là để lấy giá trị của từng file theo name
-    file abc.component.ts
-         loginUsers(signInForm: NgForm){}
+        file abc.component.ts
+            loginUsers(signInForm: NgForm){}
+            } 
+===================================================================
+Tutorial #43:  Validation in Template Driven Forms
+1.
+        required
+        ngModel
+        email
+        #emailAddress="ngModel" // lấy name để ràng buộc giá trị khi sử dụng thẻ <small>
 
-  }
+2.	<small 
+        *ngIf="emailAddress.touched && emailAddress.invalid" 
+        class="form-text text-muted"
+    >
+    kiểm tra khi nào giá trị k hợp lệ thì xuất ra
+    [disabled]="signInForm.invalid" nếu form này bị invalid thì disable nút submit
+3.  
+    input.ng-touched.ng-invalid{
+        border:2px solid red
+    }
+    check khi chạm và k có giá trị 
+===================================================================
+Tutorial #44:  Reactive Forms 
+1.  Reactive Forms in 5 simple steps
+    Step 1:
+        + Import ReactiveFormsModule in app.module.ts
+    Step 2:
+        + FormGroup
+        	*<form [formGroup]="checkoutGroup">    
+        + FormControlName
+            - đặt trong từng field
+    Step 3:
+        + Give sam FormGroup name as in the template
+        	<input 
+				type="text"
+				class="form-control" 
+				name="email"
+				formControlName="email"
+			>
+    Step 4:
+        + Inject FormBuilder in the constructor    
+    Step 5:
+        + Create the form instance   
+===================================================================
+Tutorial #44:  Validations in Reactive Forms 
+1.  email:['',Validators.required], // trong dấu '' mình có thể diền value vào đó nó sẽ hiển thị ra view
