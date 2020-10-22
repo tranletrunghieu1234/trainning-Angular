@@ -1,0 +1,84 @@
+<div class="container">
+	<h1 class="pb-2">Checkout Form - Using Reactive Forms</h1>
+	<form [formGroup]="checkoutGroup" (ngSubmit)="postData();">
+		<div>
+			<label for="">Email</label>
+			<input 
+				type="text"
+				class="form-control" 
+				name="email"
+				id="email"
+				placeholder=""
+				formControlName="email"
+			>
+			<!-- <small 
+				id="emailHelpId"
+				class="form-text text-muted"
+			>
+			Help text
+			</small>   -->
+		</div>
+		<div>
+			<label for="">Password</label>
+			<input 
+				type="text"
+				class="form-control" 
+				name="password" 
+				id="password"  
+				placeholder=""
+				formControlName="password"
+
+			>
+		</div>
+		<!-- <div>
+			<span style="color:deeppink">Radios</span>
+			<br/>
+			<label>
+				<input
+						type="radio" 
+						name="radios" 
+						value="radioFirst"
+						formControlName="radios"
+				/> 
+				First radio
+			</label>
+			<br/>
+			<label>
+				<input
+						type="radio" 
+						name="radios" 
+						value="radioSecond"
+						formControlName="radios"
+
+				/> 
+				Second radio
+			</label>
+			<br/>
+			<label>
+				<input
+						type="radio" 
+						name="radios" 
+						value="radioThird"
+				/> 
+				Third radio
+			</label>		
+		</div> -->
+		<div>
+			<span style="color:deeppink">Checkbox</span>
+			<br/>
+			<label class="form-check-label">
+				<input 
+					type="checkbox" 
+					name="terms" 
+					id="terms"
+					formControlName="terms"
+				>
+				Agree to terms
+			</label>
+		</div>
+		<div>
+			<button type="submit" class="btn btn-primary">Checkout</button>
+		</div>
+	</form>
+</div>
+

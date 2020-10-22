@@ -1,0 +1,34 @@
+<p>test-directive works!</p>
+<div>  
+    <table border="2" align=center>
+        <tr>
+            <th>STT</th>
+            <th>Tên</th>
+            <th>Lớp học</th>
+            <th>Đầu tiên</th>
+            <th>Cuối cùng</th>
+            <th>Chẵn</th>
+            <th>Lẻ0</th>
+        </tr>
+        <tr *ngFor="let item of arrName; index as i;first as first;last as last; even as even;odd as odd ">
+            <td [ngStyle]="{color:item.active?'red':'green','font-size':'30px'}">{{i}}</td>
+            <td [ngStyle]="{color:item.active?'red':'green'}">{{item.name}}</td>
+            <td [ngStyle]="{color:item.active?'red':'green'}">{{item.class}}</td>
+            <td [ngStyle]="{color:item.active?'red':'green'}">{{first?'đầu tiên':'X'}}</td>
+            <td [ngStyle]="{color:item.active?'red':'green'}">{{last?'Cuối cùng':'X'}}</td>
+            <td [ngStyle]="{color:item.active?'red':'green'}">{{even?'Chẵn':'X'}}</td>
+            <td [ngStyle]="{color:item.active?'red':'green'}">{{odd?'Lẽ':'X'}}</td>
+        </tr>
+    </table>
+</div>
+
+<div [ngClass]="[className]">
+    Learning ngClass
+</div>
+
+<div [ngClass]="{'one':true}">
+    Learning ngClass width expression
+</div>
+<div [ngClass]="testFunc()">
+    Learning ngClass width functions
+</div>

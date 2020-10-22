@@ -1,0 +1,35 @@
+<div>
+    <p>test-pipe works!</p>
+    <div>
+        {{user.name|lowercase}}
+    </div>
+    <div>
+        {{user.name|uppercase}}
+    </div>
+    <div>
+        {{user.DOB|date:"long"|uppercase}}
+    </div>
+    <div>
+        {{user.salary|currency:'USD'}}
+    </div>
+    <div>
+        {{user|json}}
+    </div>
+    <hr/>
+    <div>
+        <h4>Chainning pipes</h4>
+        <!-- <div [innerHTML]="HoChiMinhCity.name|highlight:HoChiMinhCity.name"></div> -->
+        <div>
+            <ul >
+                <li *ngFor="let item of HoChiMinhCity">
+                    <div [innerHTML]="item.name|highlight:item.name:item.cityCode"></div>
+                    <!-- <div>{{item.name|highlight:item.name}}</div> -->
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        {{phoneNumber|highlight:phoneNumber}}
+    </div>
+    
+</div>

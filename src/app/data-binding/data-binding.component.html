@@ -1,0 +1,40 @@
+<div>
+    <p>data works!</p>
+    <div>
+        <label> My name is {{name}}</label>
+    </div>
+    <div>
+        <label> year's my birth {{year}}</label>
+    </div>
+    <div>
+        <input [ngModel]="name" type="text" name="name" id="name" placeholder="Nhập vào tên của bạn"/>
+    </div>
+    <br/>
+    <div>
+        <input [(ngModel)]="year"  type="text" name="year" id="year" placeholder="Nhập vào năm sinh của bạn"/>
+    </div>
+    <div [ngStyle]="{color:colorValue}">
+        This is example of property Binding
+    </div>
+    <div>
+        <label [innerHTML]="name"> </label>
+    </div>
+    <div [ngClass]="one">
+        test123
+    </div>
+    <div>
+        <input [placeholder]="enterValue"/>
+    </div>
+    <div>
+        <a [href]="hrefValue" [attr.updateLink]="youtube" >Google</a>
+    </div>
+    <div>
+        <button (click)="clickMe('dasdas');" type="button" class="btn btn-warning ">Click me</button>
+    </div>
+    <!-- <div>
+        <input (focus)="onChangeFocus();"/>// hàm onFocus
+    </div> -->
+    <div>
+        <input [(ngModel)]="name"/>
+    </div>
+</div>

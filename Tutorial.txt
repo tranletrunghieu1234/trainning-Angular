@@ -1,0 +1,413 @@
+Tutorial #7: Angular CLI
+------------------------
+we will be learning and using of these below commands in our tutorials
+1. ng new <project-name>
+2. ng --version
+3. ng generate
+    -component
+    -service
+    -module
+    -pipe
+4. ng service
+    - used for transpiling/compiling our application
+    -by default use Port:4200
+    Can change port: ng serve port='số bất kì 4 số'(8080)
+5. ng test
+    -will run all our unit tests
+    -test are run using karma runner\
+    -unit tests are written using jasmine framework
+    -code coverage
+    we can disable some tests
+6. ng e2e
+    -it will run all our end to end tests
+    -.e2e-spec.ts - these are end to end test scripts
+    -protractor
+7. ng update
+    - if you are running on version than current version
+    -ng update\
+8. ng build
+    -built and generate the output of your application
+    -compile javascript code
+    -this is mainly used for promoting code to high env
+9. ng lint
+    -code syntax linting
+    -set rule for how code should be written
+        + coding standard
+    - it following the coding standard    
+
+==================================================================================
+
+Tutorial #8 Angular Modules
+1. Modules is Angular are logical functionality
+2. for e.g users modules
+    -register
+    -forgot
+    -sign up
+    -services
+3. modules can have components, services, directives, pipes etc etc
+     -all are related to a particular functionality
+4.plug and play features
+5. it allows to be modular , easy to maintain, easy to debug, it reduces the
+app footprint
+    -if you are on a page which does not need a module - simply dont load it
+6.  by default -every angular app has 1 module asleast
+    -AppModule
+7. We need to import required modules from core packages
+    -browserModule
+    -ngModule
+8. every module -needs to be defined by @ngModule
+9. We can declare components we need
+10. Import other modules inside a module
+11. Which is the default component to load
+========================================================================================
+Tutorial 9 : #Angular Decorators
+1. All decorators in Angular are represented with @ symbol // tất cả Decorators của Angular đều có dấu @
+    @ngModule, @component
+2. Define class decorators, input decorators etc.
+3. These decorators have to meta data
+        -has specific meta data
+        -some are mandatory->(bắt buộc)- some are optional
+4.  @hostListener- event decorators
+5.  Decorators are the way to pass meta data to angular application
+========================================================================
+
+Tutorial #9 : Angular components
+
+1.  Components is a smaller functionality can be reused multiple times in the application
+2. Smaller features inside a bigger functionality
+    For example
+        Authentication-module
+            +Login -components
+            +forgot-password-components
+            register-components
+            Authenticate-components
+3. Allows in easy maintenance and faster development
+4. Tree Hire
+    is made of Components
+        Parent
+        Child1 Child2 Child3
+5. Plug and play components where we needs
+6. Tree hire starts with App
+7. Components is the single most important components
+    -is provided by default
+    -in the index.html file- we see selector name <app-root>
+8.Each component will have 3 important things
+    -selector
+    -templateUrl or template
+    styleUrls
+9.  Its a good practice to use templateUrl and not templateUrl  
+    -code will be better organized and easy to maintain
+
+10. we can generate the components using ng generate component <comp_name>
+11. Automatically the component will be update and imported into modules.
+    -where you generate the component is very very important.
+    -the parent module will be updated accordingly
+---------------------------------------------------------------|
+12. You can have components inside components (sub components)-|
+---------------------------------------------------------------|
+    -to call a sub component we will use selector name and call the component
+13. We can include a component from other module into AppModule or any module
+
+===================================================================
+
+Tutorial #10: Directives - Overview and concept
+    -3 type of Directives   
+        +Component
+        +Structure
+        +Attribute
+1.  Component   is a type of directive
+    -It has its own template
+    -every angular app must have at least 1 directive(component)
+    -
+2. Structure directives 
+    - (*) symbol
+    - These directives alter the structure of the templateUrl
+    -*ngFor, *ngIf, and *ngSwitch
+    -for loop in any other language-js, java
+        +the idea is same
+        +you iterate over a set of data and do some operations
+    -ngIf we can do a conditional expression
+        +if else- you would have written in any other language
+        + else statement using template variables [Tutorial 12]
+    -ngSwitch
+        switch case statements to evaluate some expressions
+            +true or false -> corresponding output
+3. Attribute directives            
+    There are mainly 2 attribute directives
+        ngClass and ngStyle
+    Example-  Change the color using ngStyle
+4. Generate Custom directives
+    -Adding power and extending our application
+    - ng generate directive <directiven>
+
+===================================================================
+Tutorial #11: Angular ngIf
+1. *ngIf statement
+        -built in structural directives
+        -start with *symbol
+        -expressions resolve to true or false
+2. *ngIf with else statement
+        -template reference variable
+            +for both else and then conditional
+
+===================================================================
+Tutorial #11: Angular ngSwitch
+1. ngSwitch
+        -built in directive
+        -starts with *ngSwitchCase
+        -it used to compare more than 1 expressions at a times
+            + unlike if- which usually resolve to true/false boolean value
+            +We have multiple check value with ngSwitch
+        - *ngSwitchCase - where will mention about the check conditios/expressions
+        -ngSwitchCase - what it should do when no condition is matching    
+        -Example : We can pass any value- can be integer/string etc
+            - we can read the value dynamically also
+            - where we mistakes
+                + missing out on *
+                +for the string values - put the correct quotes "''"
+                + when switch -> [ngSwitch] - look out for the case sensitives
+===================================================================
+Tutorial #13: Angular ngFor
+    -Similar to For loops that we use in other programming language
+        +Don`t worry about the {{}} -data binding- next tutorial #14
+    -Examples
+        -index -its very important whenever DOM manipulation
+            +very important
+        -First
+        -last
+        -out
+===================================================================
+Tutorial #14: Angular ngStyle
+    -ngStyle is used for setting the style attribute of DOM elements
+    -we can set one or more properties
+    -common mistake -[ngStyle]
+===================================================================
+Tutorial #15: Angular NgClass
+    -ngClass is a directive which is used to set the class name for DOM elements
+    -[ngClass]=""
+    -Common mistake:
+        + Case sensitives of ngClass
+        + String quotes
+    -Examples
+        + simple using static class names
+        + dynamic - from the component
+        + array classes - to pass more than 1 class-we use array
+        + ngClass with expressions
+===================================================================
+Tutorial #16: Data binding
+   -Data binding là 1 kĩ thuật quan trọng và mạnh mẽ trong khía cạnh phát triển ứng dụng. Nó hỗ trợ
+    tương tác giữa component và view riêng của nó. Giúp ứng dụng của chúng ta trở nên linh hoạt hơn.
+===================================================================
+Tutorial #17: interpolation  
+===================================================================
+Tutorial #18: property binding      
+===================================================================
+Tutorial #19: Attribute binding      
+===================================================================
+Tutorial #20: Event binding      
+===================================================================
+Tutorial #21: Two Way Data Binding
+    -use [(ngModel)]
+1.  Two way binding is data binding from view to component and vice versa
+2.  We achieve two way data binding using [(ngModel`)]
+3.  Mostly - two way data binding is used by input controls
+    where -we want to read data from user and also do some operations
+===================================================================
+Tutorial #22: Pipe
+Tutorial #23: Built In Pipes
+1.  Pipes are easy to used
+2.  There are built-in pipes
+    -lowercase
+    -uppercase
+    -currency
+    -date
+    -json
+===================================================================
+Tutorial #24: Parametrizing Pipe
+===================================================================
+Tutorial #25: Chainning Pipe
+    -We can connect multiple pipes to a data input
+    Example: {{value|date|uppercase|lowercase}}
+===================================================================
+Tutorial #26: Custom Pipe    
+    -Examples for Custom pipes
+        +Formatting phone number
+===================================================================
+Tutorial #27: Angular Routing- Introduction
+1.  All the routes/paths or navigation requirements in Angulars are handle by Angular Router package
+2.  We navigate fro m one component view to orther using the Routes
+3.  We can configure various types of routes  
+    -default routes
+    -Child routes
+    -wild card routes
+    -query params
+    -url segment
+    -lazy loading
+4. We create a routes array and whenever user requests a routes
+    - It will search in the routes array
+5. Router is singleton- which means there is only one instance of Angular router per application+
+===================================================================
+Tutorial #28: Angular Routing- Routing Strategies
+1.  This is a extremely important
+2.  /home
+    /dashboard
+    /search?keywords=k1
+    /product/10
+    /product/10/images
+3.  PathLocation or HashLocation 
+4.  By default all Angular apps are using PathLocation
+    /home
+    /product
+    /search
+
+    /#/home   //HashLocation
+    /#/products  //HashLocation
+5.  We can choose any strategy we want for our app
+6.  There is no constraint or restriction
+===================================================================
+Tutorial #29: Base HREF
+1.  All angular app must have a base href directive.
+2.  Base HREF is present in index.html file
+3.  The default path of the href is always "/" -which means its pointing to the root of the server
+4.  Its extremely important -why ?
+        -If we configure the base HREF wrong- our app will not working
+5.  ng build 
+        -when deloying it will always assume
+        -u are deploying to the root folder
+    Example : http://arctutorials.com/- root folder
+              http://arctutorials.com/demos/
+        Base href="/demos"
+6. How do we configure it?
+    Giống như navLink bên react <a routerLink="/login">dsds</a>
+===================================================================
+Tutorial #30:Routing module
+===================================================================
+Tutorial #31:Routing Outlet, Routing Outlet
+===================================================================
+Tutorial #32:Configuring Routes
+===================================================================
+Tutorial #33:Parameterized Routes
+    -Cách lấy varible động trên thanh Url hiển thị trên view
+===================================================================
+Tutorial #34:Query params Routes
+    -Cách lấy varible động trên thanh Url hiển thị trên view
+     1.are passed in the url
+===================================================================
+Tutorial #35:Directing Routes
+    {path:'',redirectTo:'login',pathMatch:'full'},
+    -điền value trong pass nó sẽ điều hướng tới trang mình muốn bằng redirectTo
+===================================================================
+Tutorial #36:Wildcard Routes
+1.  We define will card Routes using **
+2.  We can have technically - but its not encouraged
+3.  As a best practice: We define a 404 or pagenotfound component
+// giá trị ko có trong URl thì mặc định trả về component 404 mà mình đã create
+===================================================================
+Tutorial #37:Child Route
+1.  We can configure any number of child routes to parent route
+2   Child routes - the syntax will be sam as defining the routes array
+3.  Using logical grouping
+        Customer          /customer   - parent route
+            +view         /customer/view  -  child route
+                -infor    /customer/view/infor child route
+                -gallery  /customer/view/gallery child route
+                -details  /customer/view/details child route
+{path:'test-routing',
+    children:[
+      {path:'view/:id',component:ProductViewComponent},
+      {path:'edit',component:ProductEditComponent},
+    ]
+},        
+===================================================================
+Tutorial #38:Lazy Loading
+     extremely important
+1.  Every large application is made up of multiple module
+        + users Module
+            - view-users
+            - update-users
+            - create-users
+        + order Module
+        + car Module
+        + item Module
+        + inventory Module
+        + vendors Module.
+2.  All modules are loaded as soon as App is loaded
+        + it makes our application very heavy
+        + bundle size increase drastically //kích thước tăng đáng kể
+        + it will load modules you don`t at the time
+        + Slow down in performance
+3.  Lazy Loading
+        + Design pattern - where the modules are loaded when requested
+        + Load modules when they are required
+            - When the user is NOT logged in
+                - Order of the user ? it does`nt sense
+            - Once user logs in
+                - When user navigates to history
+                    -then you show pass orders   [Lazy Loading]
+4.  Before Angular8
+    + loadChidren: [customerModule#module]
+5.  Dynamic Function which will import [Hands-on];
+6. How do we use Lazy Loading in your application ?
+    + This is 2 steps process
+        - 1. Create a feature module
+            - Child Routes
+        - 2. loadChidren:
+            - Config in app Routing
+7.  How to implement the lazy Loading
+        ng generate module orders2 --route orders2 --module.app.module
+8. It will generate a lazy loading feature module
+        + orders2
+9.  It is NOT loaded by default
+        + verify this in the network tab in developer tools
+10. When we navigate to orders2 routes
+    - the orders2 module is loaded
+11. It means we are loading only when we call it or on-demand
+    or LAZY LOADED FEATURE MODULE
+Tóm lại: Lazy Lazy Loading là khi nào chúng ta cần thì nói mới dc gọi ra không gọi ra trước
+===================================================================
+Tutorial #39:Route Guards(dùng để xác thực user vd nếu họ không vào page login thì họ k thể vào trang index để xem nội dung)
+1.  Route guards allow us restrict users to NOT access certain routes or fixWebpackSourcePaths
+
+For e.g
+    if the user is not logged in
+        - The user should not see "/orders" route
+    
+    if the user is logged in
+        - The user should see all page route
+
+2.  whenever implement a route  guard - it will give boolean value
+        - True
+        - False
+
+3.  Based on this boolean value ->angular router will decide if user
+should be accessing the route.
+
+4.  Generate a route guard
+        - ng g guard <guard_name>
+
+5.  While generating - it will ask us 4 interface that we want to implement
+        - we need to choose one
+
+6. Example:
+        - AdminHome Component
+            - Admin only
+        -Admin Route Guard
+            -which will check if the user is an Admin
+                if(Admin) - Show the component
+                else - take him to main screen/route.
+===================================================================
+Tutorial #40: Install Bootstrap In Angular
+    +++++npm install bootstrap jquery popper --save+++++
+===================================================================
+Tutorial #41:  Forms in Angular
+1.  Introduce about form
+===================================================================
+Tutorial #42:  Template Driven Forms
+    lưu ý 
+        + ngForm và ngModel 
+        	<form #signInForm="ngForm" (ngSubmit)="loginUsers(signInForm);">
+        + ngModel là để lấy giá trị của từng file theo name
+    file abc.component.ts
+         loginUsers(signInForm: NgForm){}
+
+  }

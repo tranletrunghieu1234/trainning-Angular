@@ -1,0 +1,92 @@
+<div class="container form-group ml-10">
+	<h1>Sign-in Using template driven Forms</h1>
+	<form #signInForm="ngForm" (ngSubmit)="loginUsers(signInForm);">
+		<div>
+			<label for="">Email address</label>
+			<input type="text"
+				class="form-control"
+				name="emailAddress"
+				id="emailAddress"
+				placeholder=""
+				required
+				ngModel
+				email
+				#emailAddress="ngModel"
+				
+			>
+			<small 
+				*ngIf="emailAddress.touched && emailAddress.invalid" 
+				class="form-text text-muted"
+			>
+			 Please fill email address</small>
+		</div>
+		<div>
+			<label for="">Password</label>
+			<input  type="password"
+					class="form-control"
+					name="passwordField"
+					id="passwordField"
+					aria-describedby="passId" 
+					placeholder=""
+					ngModel
+					required
+					#passwordField="ngModel"
+			>
+			<small 
+				*ngIf="passwordField.touched && passwordField.invalid" 
+				class="form-text text-muted"
+			>
+			 Please fill the password field</small>
+		</div>
+		<br/>
+		<div class="btn-group" data-toggle="buttons">
+			
+			<label >
+				<input  
+						type="checkbox" 
+						name="termsFied" 
+						id="termsFied"
+						autocomplete="off" 
+						value="true"
+						ngModel
+						required
+				> Agree to terms
+			</label>
+		</div>
+		<div >
+			<label>
+				<input
+						type="radio" 
+						name="sex" 
+						value="male"
+						ngModel
+				/> 
+				Male
+			</label>
+			<br/>
+			<label>
+				<input 
+					type="radio" 
+					name="sex" 
+					value="female"
+					ngModel
+				/>
+				Female
+			</label>
+		</div>
+		<div>
+			<label for="noteField">Notes</label>
+			<textarea 
+				class="form-control" 
+				name="noteField" 
+				id="noteField"
+				ngModel
+			>
+			</textarea>
+		</div>
+		<br/>
+		<div>
+			<button type="submit" [disabled]="signInForm.invalid" class="btn btn-primary">Submit</button>
+		</div>	
+	</form>
+</div>

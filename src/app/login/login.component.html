@@ -1,0 +1,22 @@
+<div>
+    <div >Đây là trang login</div>
+    <br/>
+   
+   <!-- file con -->
+   <a (click)="changeValue()" name="bnt1" id="btn1" class="btn btn-primary"  role="button">Truyền  cha sang con</a>
+    
+  
+    <div style="border:2px solid black; margin:4px; font-size:20px">
+        Truyền từ con sang cha: <b>{{message}}</b>
+    </div>
+    <app-tasks 
+    [childMessage]="parentMessage"
+    (messageEvent)="receiveMessage($event)"
+    (transmitEvent)="receiveParams($event)"
+    >
+    </app-tasks>
+    <div>
+        <app-completed-tasks  [EqualValue]="paramsEqual"></app-completed-tasks>
+   </div>
+  
+</div>
