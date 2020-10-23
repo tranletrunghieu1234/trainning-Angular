@@ -25,6 +25,7 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { SignupComponent } from './signup/signup.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { ObservableComponent } from './observable/observable.component';
 // import { Orders2Component } from './orders2/orders2.component';
 
 
@@ -49,6 +50,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     AdminHomeComponent,
     SignupComponent,
     CheckoutComponent,
+    ObservableComponent,
     // Orders2Component
   ],
   imports: [

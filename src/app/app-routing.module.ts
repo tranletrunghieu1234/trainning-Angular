@@ -15,6 +15,7 @@ import { ProductViewComponent } from './product-view/product-view.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminGuardGuard } from './admin-guard.guard';
+import { ObservableComponent } from './observable/observable.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'',pathMatch:'full'},
@@ -27,6 +28,8 @@ const routes: Routes = [
   {path:'product-id/id',component:ProductIdComponent},
   {path:'orders/:id/:id2',component:OrdersComponent},
   {path:'search-test',component:SearchTestComponent},
+  {path:'observable',component:ObservableComponent},
+
   {path:'test-routing',
     // component:TestRoutingComponent,
     children:[

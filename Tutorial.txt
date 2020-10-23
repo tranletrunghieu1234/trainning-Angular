@@ -429,6 +429,7 @@ Tutorial #43:  Validation in Template Driven Forms
         border:2px solid red
     }
     check khi chạm và k có giá trị 
+    #emailAddress="ngModel"
 ===================================================================
 Tutorial #44:  Reactive Forms 
 1.  Reactive Forms in 5 simple steps
@@ -452,5 +453,118 @@ Tutorial #44:  Reactive Forms
     Step 5:
         + Create the form instance   
 ===================================================================
-Tutorial #44:  Validations in Reactive Forms 
+Tutorial #45:  Validations in Reactive Forms 
 1.  email:['',Validators.required], // trong dấu '' mình có thể diền value vào đó nó sẽ hiển thị ra view
+2.  terms:['',Validators.requiredTrue],
+3.  *ngIf="checkoutGroup.get('email').touched && checkoutGroup.get('email').hasError('required')" 
+===================================================================
+Tutorial #46: Reactive Forms - Get Values
+    console.log("checkoutGroupemail",this.checkoutGroup.value.email);// 
+    // we are getting or reading the value of individual form control
+===================================================================
+Tutorial #47: Reactive Forms - Set Values
+this.checkoutGroup.setValue({}) // phải set tất cả các biến trong form(có thể khai báo nhưng để '') ko thì sẽ báo lỗi
+this.checkoutGroup.patchValue({}) set từng giá trị riêng Lẽ vẫn ko sao
+===================================================================
+Tutorial #48: Reactive Forms - Reset Forms
+resetForm =()=>{
+    this.checkoutGroup.reset();
+}
+===================================================================
+Tutorial #49: Reactive Forms - Value Changes
+     this.checkoutGroup.get('email').valueChanges.subscribe(item=>{ // lấy giá trị từng formcontrolname
+       console.log("item",item)
+       this.test= item
+     })
+    this.checkoutGroup.valueChanges.subscribe(item=>{ // lấy all giá trị formgroup
+      this.test= item
+    })
+===================================================================
+Tutorial #50: Reactive Forms - StatusChanges on FormControl
+ this.checkoutGroup.get('email').statusChanges.subscribe(item=>{ //single formControll
+      //console.log("item",item)
+    })
+    this.checkoutGroup.statusChanges.subscribe(item=>{ //check form is valid or invalid
+      console.log("item",item)
+    })
+===================================================================
+Tutorial #50: Reactive Forms - Form Array
+1.  Form Control
+        - Any form field in your becomes a FormControl
+2.  Group multiple FormControls
+        - FormGroup
+3.  FormArray
+    [
+        FormControl - valid
+        FormControl - valid
+        FormControl - valid
+        FormControl - invalid
+    ->> FormArray is INVALID
+    Chỉ cần 1 FormControl invalid thì formArray sẽ invalid
+    ]
+===================================================================
+Tutorial #51: Reactive Forms - Nested  Form Array
+
+ this.checkoutGroup.get('listItem').patchValue([{ //using pathValue method- we are setting entire Form value
+      itemId:[1],
+      itemName:['Hoàng Hà'],
+      itemCity:['Bạc Liêu'],
+      itemDone:[false,Validators.requiredTrue]
+    }])
+// edit value trong 1 mảng của 1 mảng con
+
+===================================================================
+Tutorial #52: Reactive Forms - Add Rows Dynamically
+// thêm 1 row hoặc 1 dữ liệu ko limit
+  get getItem(){
+    return  this.checkoutGroup.get('listItem') as FormArray;
+  }
+
+  addNewItem=()=>{
+    const getItem = this.getItem.length;
+    const newItem = this.formBuilder.group({
+      itemId:[getItem+1],
+      itemName:['das'],
+      itemCity:['ccc'],
+      itemDone:[false,Validators.requiredTrue]
+    })
+    this.getItem.push(newItem)
+  }
+===================================================================
+Tutorial #53: Reactive Forms - Remove Rows Dynamically
+   removeItem=(index)=>{
+    this.getItem.removeAt(index);
+}
+===================================================================
+Tutorial #54: Observable
+1.  Observable có thể nhận nhiều giá trị tại 1 thời điểm
+2.  Observable is a part of RxJS library
+3.  Import Observable into our component
+4.  This data can be of any time - string, events etc
+5.  Angular uses Observables very frequently in most async operations
+    -HTTP
+    -ROUTING
+    -Event Handling
+6.  In order to listen and track the changes of Observables - we need Observer
+7.  Observer will continuosly track the changes in Observable
+8.  Observer has many methods
+        - next()
+        - error()
+        - complete
+9.  Observer as it - is useless we subscribe to it
+10. By subscribe we mean that we are processing the data/values sent by Observables over period of time
+11. We can have multiple subscribers to our Observable
+12. We can also unsubscribe from an Subcriber 
+
+Hands on Example
+1. Shopping Cart Example
+        -User places an order
+            + Initial state of the order is : In progress
+            + After sometime once is received status should : processing
+2.  User status online
+        - when the user is active - the online status is "Active" -green
+        - Once user is inactive - status is "idle" and orange
+3.  
+    observer.next('Đã làm')
+    observer.error('Kếfafasf')
+    observer.complete()

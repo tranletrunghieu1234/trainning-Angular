@@ -10,7 +10,6 @@ import { title } from 'process';
 export class AppComponent {
   title:string = 'testSo1';
   ngOnInit(): void {
-    console.log("111");
   }
 
  

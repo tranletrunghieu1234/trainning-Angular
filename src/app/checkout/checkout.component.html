@@ -42,39 +42,6 @@
 
 			>
 		</div>
-		<!-- <div>
-			<span style="color:deeppink">Radios</span>
-			<br/>
-			<label>
-				<input
-						type="radio" 
-						name="radios" 
-						value="radioFirst"
-						formControlName="radios"
-				/> 
-				First radio
-			</label>
-			<br/>
-			<label>
-				<input
-						type="radio" 
-						name="radios" 
-						value="radioSecond"
-						formControlName="radios"
-
-				/> 
-				Second radio
-			</label>
-			<br/>
-			<label>
-				<input
-						type="radio" 
-						name="radios" 
-						value="radioThird"
-				/> 
-				Third radio
-			</label>		
-		</div> -->
 		<div>
 			<span style="color:deeppink">Checkbox</span>
 			<br/>
@@ -88,9 +55,34 @@
 				Agree to terms
 			</label>
 		</div>
-		<div>
-			<button type="submit" class="btn btn-primary">Checkout</button>
+		<div formArrayName="listItem">
+			<div *ngFor="let item of checkoutGroup.controls.listItem['controls']; let i=index" [formGroupName]="i">
+				<a [routerLink] (click)="removeItem(i);">Remove Item</a>
+				<br/><br/>
+				<input type="text" formControlName="itemName" id="task{{i}}"/>
+				<br/><br/>
+				<input type="text" formControlName="itemCity" id="task{{i}}"/>
+				<br/><br/>
+				<input type="checkbox" formControlName="itemDone" id="task{{i}}"/>
+			</div>
 		</div>
+
+		<!-- <div formArrayName="listData">
+			<div *ngFor="let item of checkoutGroup.controls.listData['controls']; let i=index ">
+				<input type="text" [formControlName]="i" id="task{{i}}"/>
+				
+			</div>
+		</div> -->
+		<div>
+			<button type="submit" class="btn btn-primary">Checkout</button>&nbsp;
+			<button (click)="resetForm();" class="btn btn-warning">Reset Form</button>&nbsp;
+			<button type="submit" (click)="addNewItem();" class="btn btn-danger">Add Row</button>
+
+		</div>	
 	</form>
+	<div>
+		Item: {{test |json}}
+	</div>
+
 </div>
 
