@@ -568,3 +568,72 @@ Hands on Example
     observer.next('Đã làm')
     observer.error('Kếfafasf')
     observer.complete()
+===================================================================
+Tutorial #58: Service in Angular
+1.  Service are used for reusing the common shared functionality
+for Example:
+    Contact - Module
+        Component
+            Create Contact
+            View Contact
+            Edit Contact
+            Delete Contact
+        Service
+            Contact.service.ts
+                HTTP
+                Processing Data
+                Cleaning Data
+
+2.  Services are singleton - they need to be injected into the components where we want to use them
+
+3.  Unlike components- Services need not be included in your Modules
+
+4.  We can create any number of services
+        - no restriction
+
+5.  Services are used for sharing data between components
+
+6.  Importing and injecting services into components is called "Dependency Injection"
+
+7.  Services are injected at "runtime" into components
+
+8.  The code becomes highly efficient and easy to maintain
+
+9.  The code becomes much easier to test
+
+10. We can have a values, methods or both in the services
+
+11. You can relate that services is simply a javascript class with methods and variables
+-----------------------------------------------------------------------------------------
+
+12. statement
+        ng g service <service_name>
+
+13. We can generate the services in any folder we want
+        - The best practice is always keep all services related into module
+
+14. @Injectable decorator informs Angular that we can inject it into components that its services class
+
+15. The service is provided in "root" which means its available across the application
+        - Can be injected into any component we need
+16. Services can be generate in folder Service or one parent  component  have many child component file service.ts equal level child component
+
+17. We can call any methods inside the service
+
+18 . Learn to use Services in 4 easy steps
+        Step 1: Generate the service
+            + ng g service <service_name>
+        Step 2: Import the Service in the component classes
+            + import { ContactService } from '../Services/contact.service';
+        Step 3: initialize in the constructor method i.e Dependency Injection
+            +  constructor(private contactService: ContactService) {}
+        Step 4: call the method and use Function
+            +  const listData = this.contactService.getContact();
+xài private thì phải gọi qua component.ts để lấy value , còn set publice thì gọi thẳng qua hàm service xài
+    constructor(private contactService: ContactService) {
+    }
+        ------- 
+    constructor(public contactService: ContactService) {
+    }
+
+

@@ -28,7 +28,7 @@ export class TestDirectiveComponent implements OnInit {
   }
   testFunc =()=>{
     let classes={
-      "two":!this.test1,
+      "two":this.test1,
       "one":!this.test2,
     }
     return classes;

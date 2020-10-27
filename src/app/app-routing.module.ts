@@ -1,3 +1,5 @@
+import { TestDirectiveComponent } from './test-directive/test-directive.component';
+import { ContactComponent } from './contact/contact.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { SignupComponent } from './signup/signup.component';
 import { NgModule } from '@angular/core';
@@ -19,11 +21,15 @@ import { ObservableComponent } from './observable/observable.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'',pathMatch:'full'},
-  {path:'admin', component:AdminHomeComponent, canActivate:[AdminGuardGuard]},
+  //{path:'admin', component:AdminHomeComponent, canActivate:[AdminGuardGuard]},
+  {path:'admin', component:AdminHomeComponent},
   {path:'signup', component:SignupComponent},
   {path:'checkout', component:CheckoutComponent},
 
   {path:'login',component:LoginComponent},
+  {path:'contact',component:ContactComponent},
+  {path:'directive',component:TestDirectiveComponent},
+
   {path:'test-pipe',component:TestPipeComponent},
   {path:'product-id/id',component:ProductIdComponent},
   {path:'orders/:id/:id2',component:OrdersComponent},

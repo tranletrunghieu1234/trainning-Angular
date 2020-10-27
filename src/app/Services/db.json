@@ -1,0 +1,36 @@
+{
+  "posts": [
+    {
+      "id": 1391,
+      "name": "dsadas",
+      "password": "asdasd"
+    },
+    {
+      "id": 1889,
+      "name": "dsdsd",
+      "password": "11"
+    },
+    {
+      "id": 1923,
+      "name": "fs",
+      "password": "fs"
+    },
+    {
+      "id": 1304,
+      "name": "tranletrunghieu1234@gmail.com",
+      "password": "33333"
+    },
+    {
+      "id": 1223,
+      "name": "tranletrunghie1141254u1234@gmail.com"
+    },
+    {
+      "id": 1308,
+      "name": "5251"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

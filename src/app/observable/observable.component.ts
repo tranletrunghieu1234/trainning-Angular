@@ -34,7 +34,7 @@ export class ObservableComponent implements OnInit {
         observer.next('Sau complete')
       }, 7000);
     })
-    this.data.subscribe(item=>{
+    this.data.subscribe((item:any)=>{
         this.orderStatus=item;
     });
   }

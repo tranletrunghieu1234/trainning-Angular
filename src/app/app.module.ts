@@ -1,7 +1,11 @@
+import { DataService } from './Services/data.service';
+import { Orders2Module } from './orders2/orders2.module';
+import { httpInterceptProviders } from './Interceptor/index';
 import { CommonModule, HashLocationStrategy, LocationStrategy } from "@angular/common";
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; //step 1 import formsModule
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +30,8 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { SignupComponent } from './signup/signup.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ObservableComponent } from './observable/observable.component';
+import { ContactComponent } from './contact/contact.component';
+import { LoggingInterceptor } from './Interceptor/logging.interceptor';
 // import { Orders2Component } from './orders2/orders2.component';
 
 
@@ -51,6 +57,7 @@ import { ObservableComponent } from './observable/observable.component';
     SignupComponent,
     CheckoutComponent,
     ObservableComponent,
+    ContactComponent,
     // Orders2Component
   ],
   imports: [
@@ -59,7 +66,9 @@ import { ObservableComponent } from './observable/observable.component';
     TodoModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    // Orders2Module
   ],
   exports: [
     RouterModule,
@@ -67,6 +76,7 @@ import { ObservableComponent } from './observable/observable.component';
 
   providers: [
     // {provide:LocationStrategy, useClass: HashLocationStrategy}
+    httpInterceptProviders,
   ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

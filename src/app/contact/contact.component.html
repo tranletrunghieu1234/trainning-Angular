@@ -1,0 +1,66 @@
+<p>contact works!</p>
+<!-- <div class="col-red curs">
+    <ul *ngFor="let item of  listContact; let i=index">
+        <li (click)="getById(item.id);">Name: {{item.name}}</li>
+    </ul>
+</div> -->
+<table border="2" width="60%" class="curs">
+    <tr>
+        <td>Name</td>
+        <td>Password</td>
+        <td>Xóa</td>
+    </tr>
+    <tr *ngFor="let item of listContact" (click)="getById(item.id);">
+        <td>{{item.name}}</td>
+        <td>{{item.password}}</td>
+        <td class="text-center">
+            <button (click)="deleteById(item.id);" type="button" class="btn btn-warning">Xóa</button>
+        </td>
+    </tr>
+</table>
+<hr/>
+<form  #formCreate="ngForm" (ngSubmit)="!objectContactById ? addNewContact(formCreate):updateByContactId(formCreate)">
+    <div class="form-group">
+      <label for="">Email</label>
+      <input 
+            type="email" 
+            class="form-control"
+            name="email" id="email"
+            [ngModel]="objectContactById && objectContactById.name"
+            #email="ngModel"
+            required
+       >
+    </div>
+    <div class="form-group">
+        <label for="">Password</label>
+        <input 
+            type="password" 
+            class="form-control" 
+            name="password" id="password"
+            [ngModel]="objectContactById && objectContactById.password"
+            #email="ngModel"
+
+         >
+      </div>
+    <div *ngIf="!objectContactById; then Create else Edit"></div>
+    <ng-template #Create>
+        <button [disabled]="formCreate.invalid" type="submit" class="btn btn-warning">Create</button>
+    </ng-template>
+    <ng-template #Edit>
+        <button [disabled]="formCreate.invalid" type="submit" class="btn btn-warning">Edit</button>
+    </ng-template>
+    <br/><br/>
+    <div>
+        <button (click)="testFunc()" type="button" class="btn btn-primary">Reset</button>
+    </div>
+    
+</form>
+<br/><br/>
+<div>
+    <button (click)="testHttpParams()" type="button" class="btn btn-primary">Htpp Params</button>
+</div>
+<br/><br/>
+
+<div>
+    <button (click)="listCustomer()" type="button" class="btn btn-primary">Console Contact</button>
+</div>
